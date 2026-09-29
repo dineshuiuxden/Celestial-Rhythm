@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#29483c" />
+  <meta name="description" content="A calm, astrology-inspired parenting dashboard for understanding your family’s daily rhythm." />
+  <title>Celestial Rhythm — Parenting Insight</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a href="#today" class="brand" aria-label="Celestial Rhythm home"><img src="assets/logo.svg" alt="Celestial Rhythm, cycle-aware planner" /></a>
+      <div class="profile-label">Active profile</div>
+      <div class="profiles" id="profiles"></div>
+      <button class="add-child" id="addChild"><span aria-hidden="true">＋</span> Add Child</button>
+      <nav class="nav-list" id="navList" aria-label="Dashboard sections"></nav>
+      <button class="nav-link settings-link" data-page="Settings" aria-label="Settings"><span class="nav-icon">⚙</span><span>Settings</span></button>
+    </aside>
+    <main class="main-content" id="today">
+      <header class="topbar">
+        <button class="mobile-menu icon-button" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span>☰</span></button>
+        <div class="page-title"><div class="date-label" id="dateLabel">Thursday, June 25, 2026</div><h1>A Calm Foundation for Growth</h1></div>
+        <div class="top-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle soothing dark theme"><span>☼</span></button>
+          <button class="icon-button notification-button" id="notifications" aria-label="Notifications"><span>♧</span><i class="notification-dot"></i></button>
+          <button class="avatar-button" id="profileMenu" aria-label="Open account menu">J</button>
+        </div>
+      </header>
+      <section class="stats-grid" id="stats" aria-label="Family overview"></section>
+      <div class="dashboard-columns">
+        <div class="primary-column">
+          <section class="energy-panel panel" aria-labelledby="energyTitle">
+            <div class="eyebrow">Today’s energy overview</div>
+            <h2 id="energyTitle">Moon in Taurus</h2>
+            <p class="energy-copy">The moon is in stable, sensual Taurus today. This is grounding energy — perfect for establishing routines, having deep conversation with your children, and creating a sense of security at home. Taurus appreciated slowness and quality time.</p>
+            <div class="rings-grid" id="rings"></div>
+          </section>
+          <div class="tabs" role="tablist" aria-label="Insight views" id="tabs"></div>
+          <section class="focus-panel panel" id="focusContent" aria-live="polite"></section>
+        </div>
+        <aside class="secondary-column" aria-label="Daily details">
+          <section class="moon-card" aria-label="Moon phase details"><img src="assets/moon-card.png" alt="Full moon glowing above soft sage clouds and stars" /><div class="moon-copy"><div class="moon-kicker">Moon phase</div><h2>Full Moon</h2><div class="moon-subtitle">Exalted · Earth sign</div><p>Steadying, sensory, patient. The moon thrives here — offering children deep emotional security through physical comfort and unbroken routine.</p><div class="moon-facts"><span><small>Pace</small>Slow &amp; Sure</span><span><small>Need</small>Comfort</span><span><small>Avoid</small>Rushing</span></div></div></section>
+          <section class="summary-card panel"><div class="eyebrow">Today’s summary</div><p>Moon in Taurus asks for nothing complicated. Move slowly, stay close to the earth, and let nourishment — physical, emotional, sensory — be the whole plan today.</p></section>
+          <section class="upcoming-card panel"><div class="card-heading"><div><div class="eyebrow">Upcoming</div><p class="upcoming-intro">Little moments to look forward to</p></div><button class="round-arrow" id="upcomingMore" aria-label="See all upcoming events">›</button></div><div id="upcomingList"></div></section>
+          <section class="journal-card panel"><div class="journal-art" aria-hidden="true">☾✧</div><div class="eyebrow">Quick journal</div><p>Capture today’s moments, emotions, and little wins.</p><button class="primary-button" id="journalButton"><span>♧</span> Write in Journal</button></section>
+        </aside>
+      </div>
+      <footer class="footer">A little more understanding, one day at a time <span>✦</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="modal" id="modal"><form method="dialog" class="modal-card"><button class="modal-close" aria-label="Close dialog">×</button><div class="eyebrow" id="modalEyebrow">Celestial Rhythm</div><h2 id="modalTitle">A little note for today</h2><div id="modalBody"></div><button class="primary-button modal-done">Done</button></form></dialog>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
